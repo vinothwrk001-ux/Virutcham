@@ -37,7 +37,7 @@ export default function EquipmentModal({ isOpen, onClose, equipment }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed inset-0 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-[101] w-full md:w-[900px] max-h-[100dvh] md:h-[600px] bg-white md:rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row"
+            className="fixed top-0 left-0 right-0 bottom-0 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-[101] w-full md:w-[900px] h-[100dvh] md:h-[600px] bg-white md:rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden"
           >
             {/* Close Button */}
             <button
@@ -48,7 +48,7 @@ export default function EquipmentModal({ isOpen, onClose, equipment }) {
             </button>
 
             {/* Image Column */}
-            <div className="w-full md:w-5/12 h-48 sm:h-64 md:h-full bg-supporting relative shrink-0">
+            <div className="w-full md:w-5/12 h-[35dvh] md:h-full bg-supporting relative shrink-0">
               <img
                 src={equipment.image}
                 alt={equipment.name}
@@ -56,10 +56,10 @@ export default function EquipmentModal({ isOpen, onClose, equipment }) {
               />
             </div>
 
-            {/* Details Column */}
-            <div className="w-full md:w-7/12 flex flex-col flex-1 overflow-hidden">
+            {/* Details Column (Crucial min-h-0 trick for bounded flex-scrolling) */}
+            <div className="w-full md:w-7/12 flex flex-col flex-1 min-h-0 bg-white">
               {/* Scrollable Content */}
-              <div className="p-8 md:p-10 flex-1 overflow-y-auto">
+              <div className="p-6 md:p-10 flex-1 overflow-y-auto min-h-0">
                 <div className="mb-2 text-xs font-bold tracking-widest text-accent uppercase">
                   {equipment.category}
                 </div>
