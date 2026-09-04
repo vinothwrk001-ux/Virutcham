@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import heroImage from '../assets/Home Banner.png';
-import mobileBanner from '../assets/Mobile Banner.png';
+import mobileBg from '../assets/Mobile Background.png';
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -23,17 +23,32 @@ export default function Hero() {
     >
       {/* ── MOBILE BANNER (hidden on md+) ── */}
       <motion.div
-        className="absolute inset-0 z-0 md:hidden"
+        className="absolute inset-0 z-0 md:hidden flex flex-col items-center pt-24 px-6 text-center"
         style={{ opacity, scale }}
         initial={{ scale: 1.04 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
-        <img
-          src={mobileBanner}
-          alt="Virutcham Elite Mobile Banner"
-          className="w-full h-full object-cover object-center"
-        />
+        <div className="absolute inset-0 z-0 bg-primary/20">
+          <img
+            src={mobileBg}
+            alt="Virutcham Elite Mobile Background"
+            className="w-full h-full object-cover object-bottom"
+          />
+          {/* Subtle gradient overlay to make text pop even more */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F]/80 via-transparent to-[#0A192F]/90" />
+        </div>
+        
+        <div className="relative z-10 flex flex-col items-center w-full mt-4">
+          <div className="w-12 h-1 bg-accent mb-6 rounded-full" />
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-4 text-white">
+            Reliable Equipment.<br/>
+            <span className="text-white">Better Care.</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-white/80 font-medium">
+            Virutcham <span className="text-white/60 font-normal">Elite Healthcare</span>
+          </p>
+        </div>
       </motion.div>
 
       {/* ── DESKTOP BANNER (hidden below md) ── */}
