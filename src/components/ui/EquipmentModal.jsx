@@ -45,7 +45,7 @@ export default function EquipmentModal({ isOpen, onClose, equipment }) {
             </div>
 
             {/* Details Column */}
-            <div className="w-full md:w-7/12 flex flex-col h-full max-h-[100dvh] md:max-h-full">
+            <div className="w-full md:w-7/12 flex flex-col flex-1 overflow-hidden">
               {/* Scrollable Content */}
               <div className="p-8 md:p-10 flex-1 overflow-y-auto">
                 <div className="mb-2 text-xs font-bold tracking-widest text-accent uppercase">
@@ -72,26 +72,26 @@ export default function EquipmentModal({ isOpen, onClose, equipment }) {
               </div>
 
               {/* Fixed Bottom Actions */}
-              <div className="p-8 md:p-10 pt-6 border-t border-gray-100 bg-white shrink-0">
-                <div className="flex justify-between items-center text-sm font-bold tracking-widest uppercase mb-6">
+              <div className="p-5 md:p-10 pt-4 border-t border-gray-100 bg-white shrink-0">
+                <div className="flex justify-between items-center text-sm font-bold tracking-widest uppercase mb-4">
                   <span className="text-primary/50">Availability</span>
                   <span className={equipment.availability === "Available" ? "text-accent" : "text-amber-500"}>
                     {equipment.availability}
                   </span>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-row gap-3">
                   <a
                     href="#contact"
                     onClick={onClose}
-                    className="flex-1 py-4 bg-primary text-white text-center font-bold tracking-widest text-sm hover:bg-accent transition-all cursor-none-hover rounded-xl shadow-md hover:shadow-lg"
+                    className="flex-1 py-3 bg-primary text-white text-center font-bold tracking-widest text-xs sm:text-sm hover:bg-accent transition-all cursor-none-hover rounded-xl shadow-md hover:shadow-lg flex items-center justify-center leading-tight"
                   >
-                    ENQUIRE NOW &rarr;
+                    ENQUIRE
                   </a>
                   <a
                     href={`https://wa.me/${contactInfo.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in the ${equipment.name}`}
                     target="_blank" rel="noreferrer"
-                    className="flex-1 py-4 bg-[#25D366] text-white text-center font-bold tracking-widest text-sm hover:bg-[#1da851] transition-all cursor-none-hover rounded-xl shadow-md hover:shadow-lg"
+                    className="flex-1 py-3 bg-[#25D366] text-white text-center font-bold tracking-widest text-xs sm:text-sm hover:bg-[#1da851] transition-all cursor-none-hover rounded-xl shadow-md hover:shadow-lg flex items-center justify-center leading-tight"
                   >
                     WHATSAPP
                   </a>
