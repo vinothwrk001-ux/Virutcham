@@ -7,7 +7,7 @@ export default function FloatingContact() {
 
   return (
     <>
-      {/* Desktop Floating Actions */}
+      {/* Desktop Floating Actions (hidden on mobile) */}
       <div className="fixed right-6 bottom-6 z-50 flex-col space-y-4 hidden md:flex">
         <a 
           href="#contact"
@@ -33,31 +33,38 @@ export default function FloatingContact() {
         </a>
       </div>
 
-      {/* Mobile Sticky Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] md:hidden">
-        <div className="flex h-16">
-          <a 
-            href={phoneUrl}
-            className="flex-1 flex items-center justify-center space-x-2 text-primary border-r border-gray-200"
-          >
-            <Phone className="w-5 h-5" />
-            <span className="text-xs font-bold tracking-widest uppercase">Call</span>
-          </a>
-          <a 
-            href={whatsappUrl}
-            target="_blank" rel="noreferrer"
-            className="flex-[1.5] flex items-center justify-center space-x-2 bg-[#25D366] text-white"
-          >
-            <MessageCircle className="w-5 h-5" />
-            <span className="text-xs font-bold tracking-widest uppercase">WhatsApp</span>
-          </a>
-          <a 
-            href="#contact"
-            className="flex-[1.5] flex items-center justify-center space-x-2 bg-primary text-white"
-          >
-            <span className="text-xs font-bold tracking-widest uppercase">Quote &rarr;</span>
-          </a>
-        </div>
+      {/* Mobile Floating Round Buttons — bottom-right, stacked vertically */}
+      <div
+        className="fixed right-4 z-50 flex flex-col space-y-3 md:hidden"
+        style={{ bottom: `calc(1rem + env(safe-area-inset-bottom))` }}
+      >
+        {/* Quote */}
+        <a
+          href="#contact"
+          className="w-13 h-13 w-[52px] h-[52px] bg-primary text-white rounded-full shadow-xl flex items-center justify-center active:scale-95 transition-transform"
+          title="Request Quote"
+        >
+          <FileText className="w-5 h-5" />
+        </a>
+
+        {/* Call */}
+        <a
+          href={phoneUrl}
+          className="w-[52px] h-[52px] bg-primary text-white rounded-full shadow-xl flex items-center justify-center active:scale-95 transition-transform"
+          title="Call Us"
+        >
+          <Phone className="w-5 h-5" />
+        </a>
+
+        {/* WhatsApp */}
+        <a
+          href={whatsappUrl}
+          target="_blank" rel="noreferrer"
+          className="w-[52px] h-[52px] bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center active:scale-95 transition-transform"
+          title="WhatsApp"
+        >
+          <MessageCircle className="w-5 h-5" />
+        </a>
       </div>
     </>
   );

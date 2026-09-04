@@ -10,7 +10,7 @@ export default function TrustStatement() {
   return (
     <section 
       ref={containerRef} 
-      className="py-32 md:py-48 bg-primary text-white relative overflow-hidden"
+      className="py-16 md:py-48 bg-primary text-white relative overflow-hidden"
     >
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
@@ -27,7 +27,7 @@ export default function TrustStatement() {
         {words.map((word, i) => (
           <div key={i} className="overflow-hidden pb-4 md:pb-8">
             <motion.h3 
-              className="text-5xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter leading-none"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter leading-none"
               initial={{ opacity: 0, y: 100 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
               transition={{ 

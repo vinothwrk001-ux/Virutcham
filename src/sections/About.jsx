@@ -7,10 +7,10 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 md:py-40 bg-secondary relative overflow-hidden">
+    <section id="about" className="py-16 md:py-40 bg-secondary relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-center">
           
           {/* Content Left */}
           <div className="lg:col-span-5 order-2 lg:order-1 relative z-10">
@@ -50,7 +50,7 @@ export default function About() {
           {/* Image Right (Asymmetric) */}
           <div className="lg:col-span-7 order-1 lg:order-2 flex items-center justify-center">
             <motion.div 
-              className="relative w-full aspect-[4/3] lg:aspect-[3/2] bg-white overflow-hidden rounded-3xl shadow-xl ml-auto lg:w-[90%]"
+              className="relative w-full aspect-[4/3] lg:aspect-[3/2] bg-white overflow-hidden rounded-3xl shadow-xl lg:ml-auto lg:w-[90%]"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}

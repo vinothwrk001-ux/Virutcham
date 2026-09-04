@@ -45,16 +45,16 @@ Additional Requirements: ${formData.requirements || 'N/A'}`;
   ];
 
   return (
-    <section id="rental" className="relative py-32 md:py-48 bg-primary overflow-hidden text-white">
+    <section id="rental" className="relative py-16 md:py-48 bg-primary overflow-hidden text-white">
       
-      {/* Background Graphic */}
-      <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none flex items-center justify-center">
+      {/* Background Graphic - clipped to prevent mobile overflow */}
+      <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none flex items-center justify-center overflow-hidden">
          <motion.div 
-           className="w-[800px] h-[800px] rounded-full border border-white/20 border-dashed"
+           className="w-[min(800px,100vw)] h-[min(800px,100vw)] rounded-full border border-white/20 border-dashed"
            style={{ rotate }}
          />
          <motion.div 
-           className="absolute w-[1000px] h-[1000px] rounded-full border border-white/10"
+           className="absolute w-[min(1000px,120vw)] h-[min(1000px,120vw)] rounded-full border border-white/10"
            style={{ rotate: useTransform(scrollYProgress, [0, 1], [360, 0]) }}
          />
       </div>
@@ -117,11 +117,11 @@ Additional Requirements: ${formData.requirements || 'N/A'}`;
           </motion.p>
         </div>
 
-        {/* WOW Animation Area */}
-        <div className="relative max-w-5xl mx-auto h-[600px] flex items-center justify-center mb-32" ref={containerRef}>
+        {/* WOW Animation Area - full height on desktop, compact on mobile */}
+        <div className="relative max-w-5xl mx-auto h-auto md:h-[600px] flex items-center justify-center mb-6 md:mb-32" ref={containerRef}>
           {/* Central Image */}
           <motion.div 
-            className="relative z-20 w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_50px_rgba(13,148,136,0.3)] bg-white p-4"
+            className="relative z-20 w-52 h-52 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_50px_rgba(13,148,136,0.3)] bg-white p-3 md:p-4"
             style={{ scale }}
           >
             <img 
@@ -167,6 +167,16 @@ Additional Requirements: ${formData.requirements || 'N/A'}`;
           })}
         </div>
 
+        {/* Mobile Step List - visible only on mobile */}
+        <div className="md:hidden mt-0 grid grid-cols-2 gap-4">
+          {steps.map((step, i) => (
+            <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 p-4 rounded-lg text-center">
+              <div className="text-accent text-xs font-bold tracking-widest uppercase mb-2">{step.title}</div>
+              <div className="text-white/70 text-xs">{step.desc}</div>
+            </div>
+          ))}
+        </div>
+
 
 
       </div>
@@ -188,7 +198,7 @@ Additional Requirements: ${formData.requirements || 'N/A'}`;
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-[95%] md:w-[600px] max-h-[90vh] bg-white text-primary rounded-xl overflow-y-auto"
             >
-              <div className="p-8 md:p-12 relative">
+              <div className="p-6 md:p-12 relative">
                 <button
                   onClick={() => setModalOpen(false)}
                   className="absolute top-6 right-6 p-2 hover:bg-supporting rounded-full transition-colors"

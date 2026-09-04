@@ -36,7 +36,7 @@ export default function EquipmentModal({ isOpen, onClose, equipment }) {
             </button>
 
             {/* Image Column */}
-            <div className="w-full md:w-5/12 h-64 md:h-full bg-supporting relative shrink-0">
+            <div className="w-full md:w-5/12 h-48 sm:h-64 md:h-full bg-supporting relative shrink-0">
               <img
                 src={equipment.image}
                 alt={equipment.name}

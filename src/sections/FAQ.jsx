@@ -8,12 +8,12 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="py-24 md:py-40 bg-supporting">
+    <section id="faq" className="py-16 md:py-40 bg-supporting">
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16">
         
         <div className="w-full md:w-1/3">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold tracking-tighter text-primary mb-6 sticky top-32"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -31,17 +31,17 @@ export default function Navbar() {
     <>
       <motion.header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-md border-b border-gray-100",
-          isScrolled ? "py-4 shadow-sm" : "py-6"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white backdrop-blur-md border-b border-gray-100",
+          isScrolled ? "py-2 md:py-4 shadow-sm" : "py-3 md:py-6"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="container mx-auto px-4 md:px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex-shrink-0 z-50 flex items-center">
-            <img src={logo} alt="Virutcham Elite" className="h-12 md:h-16 w-auto object-contain" />
+            <img src={logo} alt="Virutcham Elite" className="h-9 md:h-12 lg:h-16 w-auto object-contain" />
           </a>
 
           {/* Desktop Navigation */}
@@ -86,13 +86,13 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className={cn(
-              "md:hidden z-50 p-2 -mr-2 text-primary"
-            )}
+            className="flex md:hidden z-50 p-2 -mr-2 items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen 
+              ? <X className="w-6 h-6" style={{ color: '#0A192F' }} /> 
+              : <Menu className="w-6 h-6" style={{ color: '#0A192F' }} />}
           </button>
         </div>
       </motion.header>

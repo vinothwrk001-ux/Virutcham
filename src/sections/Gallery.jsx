@@ -13,15 +13,29 @@ const galleryImages = [
 
 export default function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [touchStart, setTouchStart] = useState(null);
 
   const nextImg = (e) => {
-    e.stopPropagation();
+    e?.stopPropagation();
     setSelectedIndex((prev) => (prev + 1) % galleryImages.length);
   };
 
   const prevImg = (e) => {
-    e.stopPropagation();
+    e?.stopPropagation();
     setSelectedIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.changedTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStart === null) return;
+    const diff = touchStart - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? nextImg(e) : prevImg(e);
+    }
+    setTouchStart(null);
   };
 
   return (
@@ -68,6 +82,8 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[110] bg-primary/95 backdrop-blur-sm flex items-center justify-center cursor-none-hover"
             onClick={() => setSelectedIndex(null)}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <button className="absolute top-6 right-6 p-2 text-white/50 hover:text-white z-20">
               <X className="w-8 h-8" />
@@ -77,11 +93,11 @@ export default function Gallery() {
               0{selectedIndex + 1} / 0{galleryImages.length}
             </div>
 
-            <button onClick={prevImg} className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white z-20 hidden md:block">
+            <button onClick={prevImg} className="absolute left-3 md:left-12 top-1/2 -translate-y-1/2 p-3 md:p-4 text-white/50 hover:text-white z-20 bg-white/10 rounded-full md:bg-transparent md:rounded-none">
               <ChevronLeft className="w-12 h-12" />
             </button>
 
-            <button onClick={nextImg} className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white z-20 hidden md:block">
+            <button onClick={nextImg} className="absolute right-3 md:right-12 top-1/2 -translate-y-1/2 p-3 md:p-4 text-white/50 hover:text-white z-20 bg-white/10 rounded-full md:bg-transparent md:rounded-none">
               <ChevronRight className="w-12 h-12" />
             </button>
 

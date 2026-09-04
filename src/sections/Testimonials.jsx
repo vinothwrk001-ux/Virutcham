@@ -28,7 +28,7 @@ export default function Testimonials() {
           Trusted Through Service.
         </h2>
 
-        <div className="relative w-full max-w-4xl mx-auto h-[300px]">
+        <div className="relative w-full max-w-4xl mx-auto min-h-[280px]">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 text-[120px] leading-none font-serif text-accent/20">
             &ldquo;
           </div>
@@ -42,7 +42,7 @@ export default function Testimonials() {
               transition={{ duration: 0.5 }}
               className="absolute inset-0 flex flex-col items-center justify-center"
             >
-              <p className="text-xl md:text-3xl text-white/90 leading-relaxed font-medium mb-10 max-w-3xl">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 leading-relaxed font-medium mb-8 md:mb-10 max-w-3xl">
                 {testimonials[current].text}
               </p>
               <div>

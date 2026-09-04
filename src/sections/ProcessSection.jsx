@@ -21,10 +21,10 @@ export default function ProcessSection() {
   const lineWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section ref={containerRef} className="py-24 md:py-40 bg-white relative">
+    <section ref={containerRef} className="py-16 md:py-40 bg-white relative">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-24 md:mb-32">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-primary mb-4">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary mb-4">
             From Enquiry to Equipment.
           </h2>
           <p className="text-xs font-bold tracking-widest text-primary/40 uppercase">

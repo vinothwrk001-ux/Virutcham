@@ -26,10 +26,10 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 md:py-40 bg-white">
+    <section id="services" className="py-16 md:py-40 bg-white">
       <div className="container mx-auto px-6 md:px-12">
         
-        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-32">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-32">
           <motion.h2 
             className="text-4xl md:text-6xl font-bold tracking-tighter text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}

@@ -15,11 +15,11 @@ export default function EquipmentSection() {
     : equipmentData.filter(item => item.category === activeCategory);
 
   return (
-    <section id="equipment" className="py-24 md:py-40 bg-secondary">
+    <section id="equipment" className="py-16 md:py-40 bg-secondary">
       <div className="container mx-auto px-6 md:px-12">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-primary mb-6">
               Explore Our Equipment
@@ -29,8 +29,9 @@ export default function EquipmentSection() {
             </p>
           </div>
           
-          {/* Filters */}
-          <div className="flex flex-wrap gap-2">
+          {/* Filters - horizontally scrollable on mobile */}
+          <div className="-mx-6 md:mx-0 px-6 md:px-0 overflow-x-auto pb-2 md:pb-0">
+            <div className="flex gap-2 min-w-max md:min-w-0 md:flex-wrap">
             {categories.map((category) => (
               <button
                 key={category}
@@ -45,11 +46,12 @@ export default function EquipmentSection() {
                 {category === "ALL" ? category : category.split(' ')[0]}
               </button>
             ))}
+            </div>
           </div>
         </div>
 
         {/* Equipment List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
           <AnimatePresence mode="popLayout">
             {filteredEquipment.map((item, index) => (
               <motion.div 

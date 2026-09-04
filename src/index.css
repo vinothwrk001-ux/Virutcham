@@ -18,12 +18,18 @@
     --background-end-rgb: 255, 255, 255;
   }
 
+  html {
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+  }
+
   body {
     color: var(--color-primary);
     background: var(--color-secondary);
     font-family: var(--font-body);
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

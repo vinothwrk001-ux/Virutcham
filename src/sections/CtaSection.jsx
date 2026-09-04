@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function CtaSection() {
   return (
-    <section className="relative py-32 md:py-48 bg-primary overflow-hidden flex items-center justify-center text-center">
+    <section className="relative py-16 md:py-48 bg-primary overflow-hidden flex items-center justify-center text-center">
       {/* Background Image */}
       <div className="absolute inset-0 opacity-20 mix-blend-luminosity">
         <img 
@@ -26,7 +26,7 @@ export default function CtaSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2 
-          className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -52,7 +52,7 @@ Additional Msg: ${formData.message || 'N/A'}`;
   };
 
   return (
-    <section id="contact" className="py-24 md:py-40 bg-white border-t border-gray-100">
+    <section id="contact" className="py-16 md:py-40 bg-white border-t border-gray-100">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
           
@@ -78,7 +78,7 @@ Additional Msg: ${formData.message || 'N/A'}`;
           </div>
 
           {/* Right Form */}
-          <div className="bg-secondary p-8 md:p-12 border border-gray-200/50 shadow-sm relative overflow-hidden min-h-[500px]">
+          <div className="bg-secondary p-5 sm:p-8 md:p-12 border border-gray-200/50 shadow-sm relative overflow-hidden min-h-[500px]">
             {/* Progress Bar */}
             {!isSubmitted && (
               <div className="absolute top-0 left-0 w-full h-1 bg-gray-200">
@@ -169,9 +169,9 @@ Additional Msg: ${formData.message || 'N/A'}`;
                     {step === 4 && (
                       <div className="space-y-6">
                         <input type="text" placeholder="Specific Equipment Name (If known)" value={formData.equipment} onChange={e => updateForm('equipment', e.target.value)} className="w-full border-b border-gray-300 py-4 bg-transparent focus:outline-none focus:border-accent text-primary placeholder:text-primary/30" />
-                        <div className="flex space-x-6">
-                          <input type="text" placeholder="Quantity" value={formData.quantity} onChange={e => updateForm('quantity', e.target.value)} className="w-1/2 border-b border-gray-300 py-4 bg-transparent focus:outline-none focus:border-accent text-primary placeholder:text-primary/30" />
-                          <input type="date" placeholder="Required Date" value={formData.date} onChange={e => updateForm('date', e.target.value)} className="w-1/2 border-b border-gray-300 py-4 bg-transparent focus:outline-none focus:border-accent text-primary placeholder:text-primary/30 text-sm" />
+                        <div className="flex flex-col sm:flex-row sm:space-x-6 gap-4 sm:gap-0">
+                          <input type="text" placeholder="Quantity" value={formData.quantity} onChange={e => updateForm('quantity', e.target.value)} className="w-full sm:w-1/2 border-b border-gray-300 py-4 bg-transparent focus:outline-none focus:border-accent text-primary placeholder:text-primary/30" />
+                          <input type="date" placeholder="Required Date" value={formData.date} onChange={e => updateForm('date', e.target.value)} className="w-full sm:w-1/2 border-b border-gray-300 py-4 bg-transparent focus:outline-none focus:border-accent text-primary placeholder:text-primary/30 text-sm" />
                         </div>
                         <input type="text" placeholder="Location / City" required value={formData.location} onChange={e => updateForm('location', e.target.value)} className="w-full border-b border-gray-300 py-4 bg-transparent focus:outline-none focus:border-accent text-primary placeholder:text-primary/30" />
                         <textarea placeholder="Any additional requirements?" rows={2} value={formData.message} onChange={e => updateForm('message', e.target.value)} className="w-full border-b border-gray-300 py-4 bg-transparent focus:outline-none focus:border-accent text-primary placeholder:text-primary/30"></textarea>
