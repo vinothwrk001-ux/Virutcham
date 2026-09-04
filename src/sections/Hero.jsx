@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import heroImage from '../assets/Home Banner.png';
-import mobileBanner from '../assets/Mobile Banner.jpeg';
+import heroImage from '../../../551456b9-951f-41ca-a698-7605227a1256.png';
+import mobileBanner from '../../../e7bbd452-a4c0-4e3f-8155-56ef76568c3b.png';
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -32,9 +32,27 @@ export default function Hero() {
         <img
           src={mobileBanner}
           alt="Virutcham Elite Mobile Banner"
-          className="w-full h-full object-cover object-bottom"
+          className="w-full h-full object-cover object-top"
         />
       </motion.div>
+
+      {/* ── MOBILE CTA BUTTONS (absolute over banner, hidden on md+) ── */}
+      <div className="absolute bottom-[12%] left-0 right-0 z-10 md:hidden flex flex-col gap-3 px-14">
+        <a
+          href="#equipment"
+          className="w-full py-2.5 text-center text-[10px] font-bold tracking-widest uppercase text-white border border-[#B8924A] bg-[#B8924A]/80 hover:bg-[#B8924A] transition-colors rounded-xl"
+          style={{ backdropFilter: 'blur(4px)' }}
+        >
+          EXPLORE EQUIPMENT →
+        </a>
+        <a
+          href="#rental"
+          className="w-full py-2.5 text-center text-[10px] font-bold tracking-widest uppercase text-white border border-white/50 bg-transparent hover:bg-white/10 transition-colors rounded-xl"
+          style={{ backdropFilter: 'blur(4px)' }}
+        >
+          RENT SURGICAL EQUIPMENT →
+        </a>
+      </div>
 
       {/* ── DESKTOP BANNER (hidden below md) ── */}
       <motion.div
@@ -48,10 +66,26 @@ export default function Hero() {
         <img 
           src={heroImage}
           alt="Virutcham Elite Home Banner"
-          className="absolute w-full object-cover object-center"
-          style={{ height: 'calc(100% + 96px)', top: '-96px' }}
+          className="w-full h-full object-cover object-center"
         />
       </motion.div>
+      {/* ── DESKTOP CTA BUTTONS (hidden on mobile) ── */}
+      <div className="absolute bottom-[14%] left-[3%] z-10 hidden md:flex gap-4">
+        <a
+          href="#equipment"
+          className="px-7 py-4 text-xs font-bold tracking-widest uppercase text-white border border-[#B8924A] bg-[#B8924A]/80 hover:bg-[#B8924A] transition-colors rounded-xl"
+          style={{ backdropFilter: 'blur(4px)' }}
+        >
+          EXPLORE EQUIPMENT →
+        </a>
+        <a
+          href="#rental"
+          className="px-7 py-4 text-xs font-bold tracking-widest uppercase text-white border border-white/50 bg-transparent hover:bg-white/10 transition-colors rounded-xl"
+          style={{ backdropFilter: 'blur(4px)' }}
+        >
+          RENT SURGICAL EQUIPMENT →
+        </a>
+      </div>
     </section>
   );
 }
