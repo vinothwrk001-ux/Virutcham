@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import heroImage from '../../../551456b9-951f-41ca-a698-7605227a1256.png';
-import mobileBanner from '../../../e7bbd452-a4c0-4e3f-8155-56ef76568c3b.png';
+import heroImage from '../assets/Desktop_Hero_Final.png';
+import mobileBanner from '../assets/Mobile_Hero_Final.png';
 
 export default function Hero() {
   const containerRef = useRef(null);
