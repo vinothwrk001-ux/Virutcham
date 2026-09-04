@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0A192F; /* Deep Medical Navy */
+  --color-secondary: #FFFFFF; /* Clean White */
+  --color-supporting: #F3F4F6; /* Soft Cool Grey */
+  --color-accent: #0D9488; /* Fresh Teal / Emerald */
+  --color-highlight: #E0F2FE; /* Soft Sky Blue */
+
+  --font-heading: "Manrope", sans-serif;
+  --font-body: "Manrope", "Inter", sans-serif;
+}
+
+@layer base {
+  :root {
+    --foreground-rgb: 10, 25, 47;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  body {
+    color: var(--color-primary);
+    background: var(--color-secondary);
+    font-family: var(--font-body);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-supporting);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Base styles for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
